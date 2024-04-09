@@ -7,6 +7,8 @@ PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/mani232/tryout
+PKG_SOURCE:=$(PKG_NAME).tar.xz
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 PKG_MAINTAINER:=Manibalan V <manibalan.v@zilogic.com>
 
 include $(INCLUDE_DIR)/package.mk
@@ -23,7 +25,7 @@ define Package/test-cross-compiler/description
 endef
 
 define Build/Compile
-	$(MAKE) CC=$(TARGET_CC) -C $(PKG_BUILD_DIR)/
+	$(MAKE) CC=$(TARGET_CC) -C $(PKG_BUILD_DIR)/$(PKG_NAME)/
 endef
 
 define Package/test-cross-compiler/install

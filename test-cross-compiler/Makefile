@@ -26,7 +26,7 @@ define Package/test-cross-compiler/description
 endef
 
 define Build/Compile
-	$(MAKE) -C $(PKG_BUILD_DIR)/ 
+	$(MAKE) CC=$(TARGET_CC) -C $(PKG_BUILD_DIR)/
 endef
 
 define Package/test-cross-compiler/install

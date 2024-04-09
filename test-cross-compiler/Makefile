@@ -15,23 +15,23 @@ PKG_MAINTAINER:=Manibalan V <manibalan.v@zilogic.com>
 include $(INCLUDE_DIR)/package.mk
 
 define Package/test-cross-compiler
-        SECTION:=zilogic
-        CATEGORY:=test
-        SUBMENU:=Testing
-        TITLE:=For testing
+	SECTION:=zilogic
+	CATEGORY:=test
+	SUBMENU:=Testing
+	TITLE:=For testing
 endef
 
 define Package/test-cross-compiler/description
-        This is for testing purpose.
+	This is for testing purpose.
 endef
 
 define Build/Compile
-        $(MAKE) CC=$(TARGET_CC) -C $(PKG_BUILD_DIR)/$(PKG_NAME)/
+	$(MAKE) CC=$(TARGET_CC) -C $(PKG_BUILD_DIR)/$(PKG_NAME)/
 endef
 
 define Package/test-cross-compiler/install
-        $(INSTALL_DIR) $(1)/usr/sbin
-        $(INSTALL_BIN) $(PKG_BUILD_DIR)/$(PKG_NAME)/hello $(1)/usr/hello
+	$(INSTALL_DIR) $(1)/usr/sbin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/$(PKG_NAME)/hello $(1)/usr/hello
 endef
 
 $(eval $(call BuildPackage,test-cross-compiler))
